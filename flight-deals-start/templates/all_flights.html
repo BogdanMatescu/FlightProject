@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoundedFlights</title> 
+    <style> 
+        body {
+      background-image: url("{{ url_for('static', filename='images/find_flights.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+        .negru{
+            color: black;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <h1>The founded flights for your destionation are: </h1> 
+    <form action="/data" method="POST"> 
+        <button type="submit"> Search the cheapest flight</button> 
+    </form>
+    <ol> 
+        {%for flight in list_flights%} 
+            <li class="negru">{{flight}}</li>
+        {% endfor %} 
+    </ol>
+</body>
