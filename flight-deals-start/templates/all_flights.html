@@ -29,7 +29,7 @@
     </form>
     <ol> 
         {%for flight in list_flights%} 
-            <li class="negru">{{flight}}</li>
+            <li class="negru">Id:{{flight["id"]}}, arrival at {{flight["arrival"]}}, depaarture at {{flight["departure"]}}, last ticketing date is : {{flight["lastTicketingDate"]}} and type of cabin {{flight["cabin"]}}</li>
         {% endfor %} 
     </ol>
 </body>

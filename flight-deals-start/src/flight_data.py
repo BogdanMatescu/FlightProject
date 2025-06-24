@@ -25,7 +25,7 @@ class FlightData(flight_search.FlightSearch):
                  "Authorization": f"Bearer {self.token}"
                  }
         
-        response = requests.get(url, params=params, headers=token)
+        response = requests.get(url, params=params, headers=token, verify=False)
         response.raise_for_status()
         with open("raspuns_amadeus.json", "w") as f:
             json.dump(response.json(),f,indent=2)        

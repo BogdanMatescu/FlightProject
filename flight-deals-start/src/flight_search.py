@@ -1,8 +1,8 @@
 import requests
 
-TOKEN_URL = "https://test.api.amadeus.com/v1/security/oauth2/token"
-CLIENT_ID = "SoLv5QLntVI697mGzngx7onmyn0rcvST" 
-CLIENT_SECRET = "EbqtHuLPtCAZdNtK"
+TOKEN_URL = ****
+CLIENT_ID = ******
+CLIENT_SECRET = *****
 
 class FilghtError(Exception):
     pass
@@ -25,7 +25,7 @@ class FlightSearch:
         headers = {
              "Authorization": f"Bearer {self.token}"
         }
-        request_iatcode = requests.get(url_city,params=params,headers=headers)
+        request_iatcode = requests.get(url_city,params=params,headers=headers,verify=False)
         iataCode_formated = request_iatcode.json()["data"][0]["iataCode"]
         return iataCode_formated
 
@@ -38,8 +38,8 @@ class FlightSearch:
         } 
         headers = {
     "Content-Type": "application/x-www-form-urlencoded"
-        }
-        response = requests.post(TOKEN_URL, data = data_payload, headers= headers) 
+        } 
+        response = requests.post(TOKEN_URL, data = data_payload, headers= headers, verify=False) 
         response.raise_for_status()
         return response.json()['access_token'] 
     

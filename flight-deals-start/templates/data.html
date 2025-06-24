@@ -4,7 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoundedFlights</title> 
-    <p>{{flightObject}}</p> 
-    <p>{{cabinType}}</p>
-    </style>
+    <style>
+    body {
+      background-image: url("{{ url_for('static', filename='images/data_flight.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+    </style> 
+
+    <body>
+        <h1 style="text-align: center; margin-bottom: 50px;">The cheapest flight for you</h1> 
+        <h2>Leaving from {{departure}} and arriving at {{arrival}}</h2>
+        <p>The total price for the flight is: {{flightObject}}</p> 
+        <p>The cabin type it is: {{cabinType}}</p> 
+        <form action="/save_entry" method="POST"> 
+            <button type="submit"> Save your flight</button> 
+        </form> 
+        <form action="/all_entrys" method="POST"> 
+            <button type="submit"> Show all entrys</button> 
+        </form> 
+    </body>
 </head>
