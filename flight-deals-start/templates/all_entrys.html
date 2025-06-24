@@ -1,0 +1,40 @@
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All  Entrys of the DataBase</title> 
+    <style> 
+        body {
+      background-image: url("{{ url_for('static', filename='images/all_entrys.jpg') }}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+      .form-row{
+        margin-bottom:12px;
+      } 
+      label {
+        display: inline-block; 
+        width: 120px; 
+        text-align:right; 
+        margin-right:10px;
+      }
+      input{
+        width:200px;
+      }
+    </style>
+  <body>
+    <h1>Flights</h1>
+    <ol> 
+        {%for rezultat in obj%}
+           <li>Id:{{rezultat[0]}}, Departure from: {{rezultat[1]}}, Arrival at {{rezultat[2]}}, price: {{rezultat[3]}} and type of cabin: {{rezultat[4]}}</li>
+        {% endfor %}    
+    </ol>
+  </body>
+</head> 
+
